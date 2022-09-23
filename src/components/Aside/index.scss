@@ -1,0 +1,109 @@
+.App-aside {
+    position: fixed;
+    top: 0;
+    //left: 240px;
+    //left: 13%;
+    bottom: 0;
+    z-index: 900;
+    //border-right: 1px solid #eee;
+    padding-top: 70px;
+    width: 280px;
+    background-color: #ffffff;
+    border-right: 1px solid #eee;
+  }
+  
+  @media only screen and (max-width: 968px) {
+    .App-aside {
+      display: none;
+    }
+  }
+  
+  .nav {
+    color: #000000;
+    font-size: 1.2rem;
+    list-style: none;
+    padding-left: 0px;
+    margin: 0;
+    &__list {
+      height: 50px;
+      line-height: 50px;
+      padding-left: 14px;
+  
+      &:hover {
+        background-color: #f2f4f7;
+        font-weight: 700;
+      }
+  
+      &--all-mission {
+        border-bottom: 1px solid #eee;
+      }
+  
+      &--hot-mission {
+        border-bottom: 1px solid #eee;
+        //   border-right: 5px solid #69c;
+      }
+      &--recent-posting {
+        border-bottom: 1px solid #eee;
+      }
+  
+      &--my {
+        display: flex;
+        justify-content: space-between;
+      }
+  
+      &--my-toggle {
+        display: none;
+  
+        &-icon {
+          position: absolute;
+          right: 15px;
+          margin-top: 10px;
+          border-radius: 50%;
+          transition: all 0.2s ease-in-out;
+          background: url('../../static/img/arrow-down-btn.png') no-repeat;
+          background-position: center;
+          height: 28px;
+          width: 28px;
+          cursor: pointer;
+  
+          &:hover {
+            background-color: #eee;
+          }
+        }
+  
+        &:checked + &-icon {
+          margin-top: 10px;
+          position: absolute;
+          right: 15px;
+          border-radius: 50%;
+          transition: all 0.2s ease-in-out;
+          background: url('../../static/img/arrow-up-btn.png') no-repeat;
+          background-position: center;
+          height: 28px;
+          width: 28px;
+          &:hover {
+            background-color: #eee;
+          }
+        }
+      }
+    }
+  }
+  
+  .my-nav {
+    font-size: 1.1rem;
+    list-style: none;
+  
+    &__list {
+      height: 30px;
+      line-height: 30px;
+    }
+
+  
+    &__login-text {
+      text-decoration: underline;
+    }
+    &--hidden {
+      display: none;
+    }
+  }
+  
