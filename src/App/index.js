@@ -5,7 +5,6 @@ import Main from "../Routes/Main";
 import Login from "../components/Login";
 import My from "../components/My";
 
-
 class App extends React.Component {
   render() {
     return (
