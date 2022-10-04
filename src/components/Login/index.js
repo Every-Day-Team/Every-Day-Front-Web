@@ -1,65 +1,49 @@
-import React from 'react';
-import './index.scss';
-import {
-  GOOGLE_AUTH_URL,
-  GITHUB_AUTH_URL,
-  NAVER_AUTH_URL,
-} from '../../constants';
-import logo from '../../static/img/logo.png';
-import googlelogo from '../../static/img/google-logo.png';
-import githublogo from '../../static/img/github--logo.png';
-import naverlogo from '../../static/img/naver-logo.png';
-
+import React from "react";
+import "./index.scss";
+import logo from "../../static/img/logo.png";
 
 const Login = () => {
+  // const handleInput = (e) => {
+  //   const { value, name } = e.target;
+  //   this.setState({ [name]: value });
+  // };
   return (
-    <div className="login-modal">
+    <div className="login">
       <img
         className="login-modal__logo"
         src={logo}
         alt="daily-mission-logo"
       ></img>
-      <div className="login-modal__title">로그인</div>
-      <a href={GOOGLE_AUTH_URL}>
+      <form class="login_box">
+        <input
+          type="text"
+          className="id loginInput"
+          placeholder="이메일을 입력하세요."
+          name="email"
+          // onChange={this.handleInput}
+        />
+        <input
+          type="password"
+          className="password loginInput"
+          placeholder="비밀번호를 입력하세요."
+          name="password"
+          // onChange={this.handleInput}
+        />
         <button
-          className="login-modal__button login-modal__button--google"
           type="button"
+          // onClick={this.handleJoin}
+          // className={
+          //   this.state.email.includes("@") && this.state.password.length > 5
+          //     ? "activeBtn"
+          //     : "inactiveBtn"
+          // }
         >
-          <img
-            className="login-modal__button-image"
-            src={googlelogo}
-            alt="google"
-          ></img>
-          <span> 구글로 시작하기</span>
+          로그인
         </button>
-      </a>
-      <a href={GITHUB_AUTH_URL}>
-        <button
-          className="login-modal__button login-modal__button--kakao"
-          type="button"
-          href={GITHUB_AUTH_URL}
-        >
-          <img
-            className="login-modal__button-image"
-            src={githublogo}
-            alt="github"
-          ></img>
-          <span> 깃허브로 시작하기</span>
-        </button>
-      </a>
-      <a href={NAVER_AUTH_URL}>
-        <button
-          className="login-modal__button login-modal__button--naver"
-          type="button"
-        >
-          <img
-            className="login-modal__button-image"
-            src={naverlogo}
-            alt="naver"
-          ></img>
-          <span> 네이버로 시작하기</span>
-        </button>
-      </a>
+        <br></br>
+        <a href="#">회원이 아니신가요?</a>
+        <a href="#">비밀번호를 잊으셨나요?</a>
+      </form>
     </div>
   );
 };
