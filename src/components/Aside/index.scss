@@ -12,9 +12,10 @@
   border-right: 1px solid #eee;
 }
 
-@media only screen and (max-width: 968px) {
+@media only screen and (max-width: 680px) {
   .App-aside {
-    display: none;
+    // display: none;
+    // width: 200px;
   }
 }
 

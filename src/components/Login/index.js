@@ -1,13 +1,60 @@
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import "./index.scss";
 import axios from "axios";
 import logo from "../../static/img/logo.png";
 import { Link, NavLink } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 const Login = () => {
-  // const handleInput = (e) => {
-  //   const { value, name } = e.target;
-  //   this.setState({ [name]: value });
-  // };
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+    withCredentials: true,
+  };
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    setError,
+    watch,
+  } = useForm();
+
+  const onSubmit = ({ email, password }) => {
+    getLogin(email, password);
+  };
+  //로그인 API 호출
+  const getLogin = (email, password) => {
+    console.log(email, password);
+
+    axios
+      .post(
+        `/api/v1/login`,
+        JSON.stringify({
+          username: email,
+          password: password,
+        }),
+        config
+      )
+      .then(loginSuccess)
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  //로그인 성공 시
+  async function loginSuccess(response) {
+    console.log("로그인 성공");
+    alert("로그인 성공!");
+    //이전에 남아있는 토큰이 있을 경우 지우기
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
+    const { authorization, authorization_refresh } = response.headers;
+    //localStorage에 토큰 저장
+    localStorage.setItem("accessToken", authorization);
+    localStorage.setItem("refreshToken", authorization_refresh);
+    console.log(response);
+    // jwtDecode(authorization);
+  }
   return (
     <div className="login">
       <Link to="/">
@@ -17,32 +64,20 @@ const Login = () => {
           alt="daily-mission-logo"
         ></img>
       </Link>
-      <form class="login_box">
+      <form class="login_box" onSubmit={handleSubmit(onSubmit)}>
         <input
           type="text"
-          className="id loginInput"
+          {...register("email")}
           placeholder="이메일을 입력하세요."
           name="email"
-          // onChange={this.handleInput}
         />
         <input
           type="password"
-          className="password loginInput"
+          {...register("password")}
           placeholder="비밀번호를 입력하세요."
           name="password"
-          // onChange={this.handleInput}
         />
-        <button
-          type="button"
-          // onClick={this.handleJoin}
-          // className={
-          //   this.state.email.includes("@") && this.state.password.length > 5
-          //     ? "activeBtn"
-          //     : "inactiveBtn"
-          // }
-        >
-          로그인
-        </button>
+        <button type="submit">로그인</button>
         <br></br>
         <Link to="/signUp">회원이 아니신가요?</Link>
         <a href="#">비밀번호를 잊으셨나요?</a>
