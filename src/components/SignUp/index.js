@@ -2,11 +2,8 @@ import React from "react";
 import "./index.scss";
 import logo from "../../static/img/logo.png";
 import { Link, NavLink } from "react-router-dom";
-const Login = () => {
-  // const handleInput = (e) => {
-  //   const { value, name } = e.target;
-  //   this.setState({ [name]: value });
-  // };
+
+const SignUp = () => {
   return (
     <div className="login">
       <Link to="/">
@@ -25,6 +22,20 @@ const Login = () => {
           // onChange={this.handleInput}
         />
         <input
+          type="text"
+          className="id loginInput"
+          placeholder="이름을 입력하세요."
+          name="name"
+          // onChange={this.handleInput}
+        />
+        <input
+          type="text"
+          className="id loginInput"
+          placeholder="닉네임을 입력하세요."
+          name="nickname"
+          // onChange={this.handleInput}
+        />
+        <input
           type="password"
           className="password loginInput"
           placeholder="비밀번호를 입력하세요."
@@ -40,14 +51,14 @@ const Login = () => {
           //     : "inactiveBtn"
           // }
         >
-          로그인
+          회원가입
         </button>
         <br></br>
-        <Link to="/signUp">회원이 아니신가요?</Link>
-        <a href="#">비밀번호를 잊으셨나요?</a>
+        <a>회원이신가요? 아니신가요?</a>
+        <Link to="/login">로그인 하러가기</Link>
       </form>
     </div>
   );
 };
 
-export default Login;
+export default SignUp;
