@@ -21,6 +21,7 @@ function SignUp() {
     },
     withCredentials: true,
   };
+
   const onSubmit = ({ email, password, nickname }) => {
     console.log(email, nickname, password);
     console.log("서버로 회원가입하기");
@@ -35,7 +36,7 @@ function SignUp() {
         "/api/v1/member",
         JSON.stringify({
           username: email,
-          nickname: nickname,
+          nickName: nickname,
           password: password,
         }),
         config
