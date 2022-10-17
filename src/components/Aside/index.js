@@ -80,17 +80,21 @@ const Aside = ({
             전체 미션
           </li>
         </NavLink>
+        <NavLink
+          to="/Posting"
+          activeStyle={activeStyle}
+          style={{ textDecoration: "none" }}>
         <li className="nav__list">
           <span role="img" aria-label="docs">
             📃
           </span>{" "}
           포스팅
         </li>
+        </NavLink>
         <NavLink
           to="/TodoList"
           activeStyle={activeStyle}
-          style={{ textDecoration: "none" }}
-        >
+          style={{ textDecoration: "none" }}>
           <li className="nav__list">
             <span role="img" aria-label="man">
             👻 투두리스트
