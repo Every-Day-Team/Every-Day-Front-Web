@@ -6,6 +6,7 @@ import Login from "../components/Login";
 import SignUp from "../components/SignUp";
 import My from "../components/My";
 import Mission from "../components/Mission";
+import TodoList from "../components/TodoList";
 // import Landing from "../components/Landing";
 class App extends React.Component {
   render() {
@@ -16,6 +17,7 @@ class App extends React.Component {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signup" element={<SignUp />}></Route>
           <Route path="/my" element={<My />}></Route>
+          <Route path="/TodoList" element={<TodoList />}></Route>
           <Route path="/mission" element={<Mission />}></Route>
         </Routes>
       </Router>

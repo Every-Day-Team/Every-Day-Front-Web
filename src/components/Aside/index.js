@@ -87,6 +87,17 @@ const Aside = ({
           포스팅
         </li>
         <NavLink
+          to="/TodoList"
+          activeStyle={activeStyle}
+          style={{ textDecoration: "none" }}
+        >
+          <li className="nav__list">
+            <span role="img" aria-label="man">
+            👻 투두리스트
+            </span>{" "}
+          </li>
+        </NavLink>
+        <NavLink
           to={currentUser ? "/my" : "/login"}
           activeStyle={activeStyle}
           style={{ textDecoration: "none" }}
