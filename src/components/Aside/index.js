@@ -86,11 +86,16 @@ const Aside = ({
           </span>{" "}
           포스팅
         </li>
-        {/* <NavLink
+        <NavLink
           to={currentUser ? "/my" : "/login"}
           activeStyle={activeStyle}
           style={{ textDecoration: "none" }}
         > */}
+        <NavLink
+          to={currentUser ? "/my" : "/my"}
+          activeStyle={activeStyle}
+          style={{ textDecoration: "none" }}
+        >  */}
         <NavLink
           to={currentUser ? "/my" : "/my"}
           activeStyle={activeStyle}
