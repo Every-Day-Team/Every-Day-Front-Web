@@ -6,6 +6,7 @@ import logo from "../../static/img/logo.png";
 import { Link, NavLink } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import Aside from "../Aside";
+import React from "react";
 const Login = () => {
   const config = {
     headers: {
@@ -21,18 +22,18 @@ const Login = () => {
     watch,
   } = useForm();
 
-  const onSubmit = ({ email, password }) => {
-    getLogin(email, password);
+  const onSubmit = ({ username, password }) => {
+    getLogin(username, password);
   };
   //로그인 API 호출
-  const getLogin = (email, password) => {
-    console.log(email, password);
+  const getLogin = (username, password) => {
+    console.log(username, password);
 
     axios
       .post(
-        `/api/v1/login`,
+        `/login`,
         JSON.stringify({
-          username: email,
+          username: username,
           password: password,
         }),
         config
@@ -66,12 +67,12 @@ const Login = () => {
           alt="daily-mission-logo"
         ></img>
       </Link>
-      <form class="login_box" onSubmit={handleSubmit(onSubmit)}>
+      <form className="login_box" onSubmit={handleSubmit(onSubmit)}>
         <input
           type="text"
-          {...register("email")}
-          placeholder="이메일을 입력하세요."
-          name="email"
+          {...register("username")}
+          placeholder="아이디 입력하세요."
+          name="username"
         />
         <input
           type="password"
