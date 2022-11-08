@@ -5,6 +5,7 @@ import axios from "axios";
 import logo from "../../static/img/logo.png";
 import { Link, NavLink } from "react-router-dom";
 import jwt_decode from "jwt-decode";
+import Aside from "../Aside";
 const Login = () => {
   const config = {
     headers: {
@@ -57,6 +58,7 @@ const Login = () => {
   }
   return (
     <div className="login">
+      {/* <Aside></Aside> */}
       <Link to="/">
         <img
           className="login-modal__logo"
