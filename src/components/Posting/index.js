@@ -93,13 +93,13 @@ class Posting extends React.Component {
       },
       withCredentials: true,
     };
-    const {
-      register,
-      formState: { errors },
-      handleSubmit,
-      setError,
-      watch,
-    } = useForm();
+    // const {
+    //   register,
+    //   formState: { errors },
+    //   handleSubmit,
+    //   setError,
+    //   watch,
+    // } = useForm();
 
     const onSubmit = ({ title, content }) => {
       setGamer(title, content);
@@ -145,7 +145,8 @@ class Posting extends React.Component {
                 >
                   ×
                 </span>
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <form>
+                  {/* onSubmit={handleSubmit(onSubmit)} */}
                   <div className="new-mission__title">
                     <label>미션 이름</label>
                     <label className="new-mission__descrition">
