@@ -2,6 +2,9 @@
   "name": "everyday_web",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "17.7.2"
+  },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@testing-library/jest-dom": "^5.16.5",
