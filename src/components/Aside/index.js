@@ -104,6 +104,17 @@ const Aside = ({
           </li>
         </NavLink>
         <NavLink
+          to="/MemoComponents"
+          activeStyle={activeStyle}
+          style={{ textDecoration: "none" }}
+        >
+          <li className="nav__list">
+            <span role="img" aria-label="memo">
+            📝 메모
+            </span>{" "}
+          </li>
+        </NavLink>
+        <NavLink
           to={currentUser ? "/my" : "/login"}
           activeStyle={activeStyle}
           style={{ textDecoration: "none" }}

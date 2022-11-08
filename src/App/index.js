@@ -8,6 +8,8 @@ import My from "../components/My";
 import Mission from "../components/Mission";
 import TodoList from "../components/TodoList";
 import Posting from "../components/Posting";
+import MemoComponents from "../components/MemoComponents";
+
 // import Landing from "../components/Landing";
 class App extends React.Component {
   render() {
@@ -20,6 +22,7 @@ class App extends React.Component {
           <Route path="/my" element={<My />}></Route>
           <Route path="/Posting" element={<Posting />}></Route>
           <Route path="/TodoList" element={<TodoList />}></Route>
+          <Route path="/MemoComponents" element={<MemoComponents />}></Route>
           <Route path="/mission" element={<Mission />}></Route>
         </Routes>
       </Router>
