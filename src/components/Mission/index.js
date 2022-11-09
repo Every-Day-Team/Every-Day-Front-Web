@@ -1,5 +1,7 @@
 import React from "react";
 import "./index.scss";
+import Header from "../../components/Header";
+import Aside from "../../components/Aside";
 import { Link } from "react-router-dom";
 
 const CreateMissionBox = ({ mission }) => {
@@ -46,6 +48,8 @@ const CreateMissionBox = ({ mission }) => {
 
 const Mission = ({ missions }) => {
   return (
+    <div className="App">
+    <Header />
     <section className="mission">
       <h1 className="mission__upper-text">
         <span role="img" aria-label="rocket">
@@ -60,6 +64,7 @@ const Mission = ({ missions }) => {
       </div>
       <div className="scroll-detector"></div>
     </section>
+    </div>
   );
 };
 

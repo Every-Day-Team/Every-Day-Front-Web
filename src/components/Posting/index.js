@@ -24,17 +24,19 @@ const Posting = () => {
     watch,
   } = useForm();
 
-  const onSubmit = ({ title, content }) => {
-    setGamer(title, content);
+  const onSubmit = ({ title, content,startDate, endDate }) => {
+    setGamer(title, content, startDate,endDate);
   };
-  const setGamer = (title, content) => {
-    console.log(title, content);
+  const setGamer = (title, content, startDate, endDate) => {
+    console.log(title, content, startDate, endDate);
     axios
       .post(
         `/mission`,
         JSON.stringify({
           title: title,
           content: content,
+          startDate,
+          endDate
         }),
         config
       )
@@ -69,23 +71,43 @@ const Posting = () => {
               </span>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="new-mission__title">
-                  {/* <input
-                    type="img"
-                    {...register("uploadFile")}
-                    placeholder="사진 넣기."
-                    name="uploadFile"
-                  /> */}
-                  <input
+                  <label>미션 이름</label>
+                  <input className="new-mission__input new-mission__input"
+                    name="title"
                     type="text"
                     {...register("title")}
                     placeholder="제목을 작성하세요."
-                    name="title"
                   />
-                  <input
+                  </div>
+                  <div className="new-mission__contents">
+                  <label>미션 내용</label>
+                  <input className="new-mission__input"
                     type="text"
                     {...register("content")}
                     placeholder="내용를 작성하세요."
                     name="content"
+                  />
+                </div>
+                <div className="new-mission__date">
+                <div className="new-mission__title">
+                  <label>시작 날짜</label>
+                  <input
+                    className="new-mission__input"
+                    type="text"
+                    name="startDate"
+                    {...register("startDate")}
+                    placeholder="시작 날짜를 작성하세요."
+                  />
+                </div>
+                </div>
+                <div className="new-mission__end-date">
+                  <label>종료 날짜</label>
+                  <input
+                    className="new-mission__input"
+                    type="type"
+                    name="endDate"
+                    {...register("endDate")}
+                    placeholder="종료 날짜를 작성하세요."
                   />
                 </div>
                 <div>

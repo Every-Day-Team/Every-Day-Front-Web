@@ -69,7 +69,7 @@ const Aside = ({
           </li>
         </NavLink>
         <NavLink
-          to="/mission"
+          to="/Allmission"
           activeStyle={activeStyle}
           style={{ textDecoration: "none" }}
         >
