@@ -2,7 +2,42 @@ import { useState } from "react";
 import "./index.scss";
 import Header from "../../components/Header";
 import Aside from "../../components/Aside";
-import Mission from "../../components/Mission";
+
+
+
+const URL_API = "http://100.25.224.191:8080/mission"
+
+const URL_Title = "http://100.25.224.191:8080/mission/Title"
+
+const URL_Content = "http://100.25.224.191:8080/mission/Content"
+
+function title(){
+  return fetch(URL_Title)
+  .then(response => {
+      return response.json();
+  })
+  .then(title => {
+      return title;
+  })
+  .catch(error => console.log(error));
+}
+
+function content(){
+  return fetch(URL_Content)
+  .then(response => {
+      return response.json();
+  })
+  .then(content => {
+      return content;
+  })
+  .catch(error => console.log(error));
+}
+
+
+export {
+  Title,
+  Content
+}
 
 
 const CreateMissionBox = ({ mission }) => {
@@ -10,10 +45,10 @@ const CreateMissionBox = ({ mission }) => {
 
         <article className="all-mission-box">
           <div className="all-mission-box__body">
-            <h2 className="all-mission-box__title"><p>title</p></h2>
-            <p className="all-mission-box__content"><p>body</p></p>
+            <h2 className="all-mission-box__title">{title}</h2>
+            <p className="all-mission-box__content">{content}</p>
             <div className="all-mission-box__people">
-              
+              <p>2022-12-02</p>
             </div>
           </div>
         </article>
@@ -22,9 +57,6 @@ const CreateMissionBox = ({ mission }) => {
   };
 
 function AllMission() {
-  const [dumyTag, setDumyTag] = useState({
-    tag: ["스터디", "컴공"],
-  });
   return (
     <div className="App">
       <Header />
@@ -38,7 +70,7 @@ function AllMission() {
         전체 미션
       </h1>
       <div className="mission__list-box">
-      <Mission/>
+      <CreateMissionBox/>
       </div>
       <div className="scroll-detector"></div>
     </section>
