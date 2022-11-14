@@ -3,6 +3,7 @@ import Header from "../Header";
 import Aside from "../Aside";
 import MemoHeader from "../MemoHeader";
 import MemoLayout from '../MemoLayout';
+import WriteMemo from '../WriteMemo';
 
 class MemoComponents extends Component {
   render() {
@@ -13,8 +14,10 @@ class MemoComponents extends Component {
         <div className="container">
         <MemoLayout>
                 <MemoHeader/>
-                hello
-            </MemoLayout>
+                <MemoLayout.Main>
+                <WriteMemo/>
+                  </MemoLayout.Main>
+        </MemoLayout>
         </div>
         </div>
     );

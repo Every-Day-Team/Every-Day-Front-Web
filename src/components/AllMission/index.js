@@ -35,8 +35,8 @@ function content(){
 
 
 export {
-  Title,
-  Content
+  title,
+  content
 }
 
 
