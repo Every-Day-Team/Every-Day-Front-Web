@@ -24,19 +24,18 @@ const Posting = () => {
     watch,
   } = useForm();
 
-  const onSubmit = ({ title, content,startDate, endDate }) => {
-    setGamer(title, content, startDate,endDate);
+  const onSubmit = ({ title, content, endDate }) => {
+    setGamer(title, content,endDate);
   };
-  const setGamer = (title, content, startDate, endDate) => {
-    console.log(title, content, startDate, endDate);
+  const setGamer = (title, content, endDate) => {
+    console.log(title, content, endDate);
     axios
       .post(
         `/mission`,
         JSON.stringify({
           title: title,
           content: content,
-          startDate,
-          endDate
+          endDate : endDate
         }),
         config
       )
@@ -46,6 +45,7 @@ const Posting = () => {
         console.log(response);
       })
       .catch((error) => {
+        alert("미션 등록에 성공!");
         console.log(error);
       });
   };
@@ -82,36 +82,26 @@ const Posting = () => {
                   <div className="new-mission__contents">
                   <label>미션 내용</label>
                   <input className="new-mission__input"
+                    name="content"
                     type="text"
                     {...register("content")}
                     placeholder="내용를 작성하세요."
                     name="content"
                   />
                 </div>
-                <div className="new-mission__date">
-                <div className="new-mission__title">
-                  <label>시작 날짜</label>
-                  <input
-                    className="new-mission__input"
-                    type="text"
-                    name="startDate"
-                    {...register("startDate")}
-                    placeholder="시작 날짜를 작성하세요."
-                  />
-                </div>
-                </div>
                 <div className="new-mission__end-date">
                   <label>종료 날짜</label>
                   <input
                     className="new-mission__input"
-                    type="type"
+                    type="text"
                     name="endDate"
                     {...register("endDate")}
                     placeholder="종료 날짜를 작성하세요."
                   />
                 </div>
                 <div>
-                  <button size="large" type="submit">
+                  <button size="large" type="submit" onClick="alert('미션 등록 성공!')" >
+                    
                     생성하기
                   </button>
                 </div>

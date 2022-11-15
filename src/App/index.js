@@ -10,6 +10,7 @@ import TodoList from "../components/TodoList";
 import Posting from "../components/Posting";
 import AllMission from "../components/AllMission";
 import MemoComponents from "../components/MemoComponents";
+import MissionDetail from "../components/MissionDetail";
 
 // import Landing from "../components/Landing";
 class App extends React.Component {
@@ -26,6 +27,7 @@ class App extends React.Component {
           <Route path="/MemoComponents" element={<MemoComponents />}></Route>
           <Route path="/mission" element={<Mission />}></Route>
           <Route path="/Allmission" element={<AllMission />}></Route>
+          <Route path="/missionDetail" element={<MissionDetail />}></Route>
         </Routes>
       </Router>
     );
