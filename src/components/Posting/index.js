@@ -4,7 +4,7 @@ import "./index.scss";
 import Header from "../Header";
 import Aside from "../Aside";
 import Popup from "reactjs-popup";
-import moment from "moment";
+import isLogin from "../../constants/isLogin";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 
@@ -24,17 +24,18 @@ const Posting = () => {
     watch,
   } = useForm();
 
-  const onSubmit = ({ title, content }) => {
-    setGamer(title, content);
+  const onSubmit = ({ title, content, endDate }) => {
+    setGamer(title, content, endDate);
   };
-  const setGamer = (title, content) => {
-    console.log(title, content);
+  const setGamer = (title, content, endDate) => {
+    console.log(title, content, endDate);
     axios
       .post(
         `/mission`,
         JSON.stringify({
           title: title,
           content: content,
+          endDate: endDate,
         }),
         config
       )
@@ -51,7 +52,7 @@ const Posting = () => {
   return (
     <div className="App">
       <Header />
-      <Aside />
+      <Aside isLogin={isLogin()} />
       <div className="container">
         <Popup
           modal
@@ -70,27 +71,43 @@ const Posting = () => {
               </span>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="new-mission__title">
-                  {/* <input
-                    type="img"
-                    {...register("uploadFile")}
-                    placeholder="사진 넣기."
-                    name="uploadFile"
-                  /> */}
+                  <label>미션 이름</label>
                   <input
+                    className="new-mission__input new-mission__input"
+                    name="title"
                     type="text"
                     {...register("title")}
                     placeholder="제목을 작성하세요."
-                    name="title"
                   />
+                </div>
+                <div className="new-mission__contents">
+                  <label>미션 내용</label>
                   <input
+                    className="new-mission__input"
+                    name="content"
                     type="text"
                     {...register("content")}
                     placeholder="내용를 작성하세요."
                     name="content"
                   />
                 </div>
+                <div className="new-mission__end-date">
+                  <label>종료 날짜</label>
+                  <input
+                    className="new-mission__input"
+                    type="text"
+                    name="endDate"
+                    {...register("endDate")}
+                    placeholder="20XX-XX-XX"
+                  />
+                </div>
                 <div>
-                  <button size="large" type="submit">
+                  <button
+                    className="btn"
+                    size="large"
+                    type="submit"
+                    onClick="alert('미션 등록 성공!')"
+                  >
                     생성하기
                   </button>
                 </div>

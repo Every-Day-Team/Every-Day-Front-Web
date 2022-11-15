@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.scss";
-import Mission from "../Mission2";
+import Mission from "../Mission";
 
 class My extends React.Component {
   render() {

@@ -46,21 +46,11 @@ const CreateLoginAlert = ({ isMyNavVisible }) => {
     </ul>
   );
 };
-const Aside = ({
-  currentUser,
-  onClickMyMissionList,
-  isMyNavVisible,
-  toggleBox,
-}) => {
+const Aside = ({ isLogin }) => {
   return (
     <aside className="App-aside">
       <ul className="nav">
-        <NavLink
-          to="/"
-          exact
-          activeStyle={activeStyle}
-          style={{ textDecoration: "none" }}
-        >
+        <NavLink to="/" exact style={{ textDecoration: "none" }}>
           <li className="nav__list">
             <span role="img" aria-label="house">
               🏠
@@ -68,11 +58,7 @@ const Aside = ({
             홈
           </li>
         </NavLink>
-        <NavLink
-          to="/mission"
-          activeStyle={activeStyle}
-          style={{ textDecoration: "none" }}
-        >
+        <NavLink to="/" style={{ textDecoration: "none" }}>
           <li className="nav__list">
             <span role="img" aria-label="rocket">
               🐰
@@ -80,11 +66,7 @@ const Aside = ({
             전체 미션
           </li>
         </NavLink>
-        <NavLink
-          to="/Posting"
-          activeStyle={activeStyle}
-          style={{ textDecoration: "none" }}
-        >
+        <NavLink to="/Posting" style={{ textDecoration: "none" }}>
           <li className="nav__list">
             <span role="img" aria-label="docs">
               📃
@@ -92,11 +74,7 @@ const Aside = ({
             포스팅
           </li>
         </NavLink>
-        <NavLink
-          to="/TodoList"
-          activeStyle={activeStyle}
-          style={{ textDecoration: "none" }}
-        >
+        <NavLink to="/TodoList" style={{ textDecoration: "none" }}>
           <li className="nav__list">
             <span role="img" aria-label="man">
               👻 투두리스트
@@ -104,25 +82,15 @@ const Aside = ({
           </li>
         </NavLink>
         <NavLink
-          to={currentUser ? "/my" : "/login"}
-          activeStyle={activeStyle}
+          to={isLogin ? "/my" : "/login"}
           style={{ textDecoration: "none" }}
         >
           <li className="nav__list">
             <span role="img" aria-label="man">
-              🌱 MY
-            </span>{" "}
+              {isLogin ? "🌱 MY" : "🧑‍💻 Login"}
+            </span>
           </li>
         </NavLink>
-        {currentUser ? (
-          <CreateUserMissionList
-            currentUser={currentUser}
-            isMyNavVisible={isMyNavVisible}
-            onClickMyMissionList={onClickMyMissionList}
-          />
-        ) : (
-          <CreateLoginAlert isMyNavVisible={isMyNavVisible} />
-        )}
       </ul>
     </aside>
   );
