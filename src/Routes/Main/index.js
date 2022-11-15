@@ -54,7 +54,7 @@ function Main() {
             datas?.map((item) => (
               <Mission
                 missionName={item.title}
-                date={item.createdDate}
+                date={item.endDate}
                 tag={dumyTag}
                 subTitle={"5명 참여 중"}
                 subDetail={item.content}

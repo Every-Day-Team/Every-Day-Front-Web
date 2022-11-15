@@ -81,7 +81,7 @@ function Mission({
       <ContentHeader>
         <MissionTitle>{missionName}</MissionTitle>
         <ContentData>
-          {date} <br></br>
+          {date} 까지 <br></br>
           <span>{subTitle}</span>
         </ContentData>
       </ContentHeader>
@@ -99,7 +99,7 @@ function Mission({
                     </TagUl>
                   </Tag>
                 </TagWrap> */}
-          <div>참여하기</div>
+          <div onClick={() => alert("미션 참여 신청 완료!")}>참여하기</div>
         </UserJoin>
       </ContentDetail>
     </Content>
