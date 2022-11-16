@@ -28,7 +28,7 @@ const Login = () => {
   //로그인 API 호출
   const getLogin = (username, password) => {
     console.log(username, password);
-
+    localStorage.setItem("username", username);
     axios
       .post(
         `/login`,

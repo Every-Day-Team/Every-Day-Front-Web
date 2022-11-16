@@ -4,12 +4,13 @@ import Mission from "../Mission";
 
 class My extends React.Component {
   render() {
+    const name = localStorage.getItem("username");
     return (
       <>
         <div className="my">
           <div className="my__title">
             <h1 className="my__title-who">
-              지지님의 미션
+              {name}님의 미션
               <span role="img" aria-label="sunglassman">
                 😎
               </span>
