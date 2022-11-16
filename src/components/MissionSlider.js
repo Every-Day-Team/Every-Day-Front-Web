@@ -77,7 +77,7 @@ const MissionTitle = styled.div`
   font-size: 26px;
   margin-left: 10px;
 `;
-function Mission({
+function MissionSlider({
   onName,
   date,
   subTitle,
@@ -152,4 +152,4 @@ function Mission({
   );
 }
 
-export default Mission;
+export default MissionSlider;

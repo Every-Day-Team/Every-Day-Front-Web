@@ -1,21 +1,67 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./index.css";
 import Header from "../../components/Header";
 import Aside from "../../components/Aside";
-import Status from "../../components/Status";
+import axios from "axios";
 import Mission from "../../components/Mission";
 function Main() {
   const [dumyTag, setDumyTag] = useState({
     tag: ["스터디", "컴공"],
   });
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+    },
+    withCredentials: true,
+  };
+  const [datas, setDatas] = useState([]);
+  useEffect(() => {
+    getMissionList();
+    isLogin();
+    console.log("미션리스트");
+    async function getMissionList() {
+      axios
+        .get("/mission")
+        .then((response) => {
+          console.log(response);
+          setDatas(response.data.simpleLectureDtoList);
+          console.log("데이터", datas);
+        })
+        .catch((error) => {});
+    }
+  }, []);
+  console.log("데이터밖", datas);
+  const isLogin = () => {
+    const token = localStorage.getItem("accessToken");
+    console.log("실행");
+    if (!token) {
+      console.log("비로그인");
+      return false;
+    } else {
+      console.log("마이페이지로 이동");
+      return true;
+    }
+  };
   return (
     <div className="App">
       <Header />
-      <Aside />
-      <div className="container">
-        {/* <Status /> */}
-        {/* <MissionSlider /> */}
-        <Mission
+      <Aside isLogin={isLogin()} />
+      <div className="wrap">
+        <h1>전체 미션</h1>
+        <div className="container">
+          {datas &&
+            datas?.map((item) => (
+              <Mission
+                missionName={item.title}
+                date={item.endDate}
+                tag={dumyTag}
+                subTitle={"5명 참여 중"}
+                subDetail={item.content}
+                userName={item.writerName}
+              />
+            ))}
+          {/* <Mission
           onName={"오늘의 미션"}
           missionName={"1일1알고리즘"}
           date={"10일 전 시작"}
@@ -41,7 +87,8 @@ function Main() {
           subTitle={"5명 참여 중"}
           subDetail={"오늘 운동 완료! 운동 인증 같이해요!"}
           userName={"김헬스"}
-        />
+        /> */}
+        </div>
       </div>
     </div>
   );

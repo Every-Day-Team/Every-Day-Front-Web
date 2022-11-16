@@ -1,20 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const Wrap = styled.div`
-  height: 320px;
-`;
-
-const Contents = styled.div`
-  height: fit-content;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 const Content = styled.div`
-  width: 30vw;
+  width: 300px;
   height: fit-content;
-  margin: 0px 5px;
+  margin: 0px 10px 20px;
   background-color: whitesmoke;
   padding: 18px;
   border-radius: 20px;
@@ -86,42 +76,21 @@ function Mission({
   tag,
   missionName,
 }) {
-  const [dumy, setDumy] = useState(["1", "2", "3"]);
   return (
-    <Wrap>
-      <Title>{onName}</Title>
-      <SeeMore>
-        <span>더 보기</span>
-      </SeeMore>
-      <Contents>
-        {/* <SlideBtn>
-          <Svg
-            fill="white"
-            viewBox="0 0 256 512"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fillRule="evenodd"
-              d="M192 448c-8.188 0-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25l160-160c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L77.25 256l137.4 137.4c12.5 12.5 12.5 32.75 0 45.25C208.4 444.9 200.2 448 192 448z"
-              clipRule="evenodd"
-            />
-          </Svg>
-        </SlideBtn> */}
-        {dumy.map((_item, index) => (
-          <Content key={index}>
-            <ContentHeader>
-              <MissionTitle>{missionName}</MissionTitle>
-              <ContentData>
-                {date} <br></br>
-                <span>{subTitle}</span>
-              </ContentData>
-            </ContentHeader>
+    <Content>
+      <ContentHeader>
+        <MissionTitle>{missionName}</MissionTitle>
+        <ContentData>
+          {date} 까지 <br></br>
+          <span>{subTitle}</span>
+        </ContentData>
+      </ContentHeader>
 
-            <ContentDetail>
-              <Detail>{subDetail}</Detail>
-              <UserJoin>
-                <div>{userName}</div>
-                {/* <TagWrap>
+      <ContentDetail>
+        <Detail>{subDetail}</Detail>
+        <UserJoin>
+          <div>{userName}</div>
+          {/* <TagWrap>
                   <Tag>
                     <TagUl>
                       {tag.tag.map((item, index) => (
@@ -130,25 +99,10 @@ function Mission({
                     </TagUl>
                   </Tag>
                 </TagWrap> */}
-                <div>참여하기</div>
-              </UserJoin>
-            </ContentDetail>
-          </Content>
-        ))}
-        {/* <SlideBtn>
-          <Svg
-            fill="white"
-            viewBox="0 0 256 512"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fillRule="evenodd"
-              d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z"
-            />
-          </Svg>
-        </SlideBtn> */}
-      </Contents>
-    </Wrap>
+          <div onClick={() => alert("미션 참여 신청 완료!")}>참여하기</div>
+        </UserJoin>
+      </ContentDetail>
+    </Content>
   );
 }
 

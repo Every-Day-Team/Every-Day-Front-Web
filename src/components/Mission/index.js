@@ -46,6 +46,7 @@ const CreateMissionBox = ({ mission }) => {
 
 const Mission = ({ missions }) => {
   return (
+    <h1>h1</h1>
     <section className="mission">
       <h1 className="mission__upper-text">
         <span role="img" aria-label="rocket">
